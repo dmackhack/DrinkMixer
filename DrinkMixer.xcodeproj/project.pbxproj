@@ -1,0 +1,283 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		281A77B3143F103C004069FD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281A77B2143F103C004069FD /* UIKit.framework */; };
+		281A77B5143F103C004069FD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281A77B4143F103C004069FD /* Foundation.framework */; };
+		281A77B7143F103C004069FD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281A77B6143F103C004069FD /* CoreGraphics.framework */; };
+		281A77BD143F103C004069FD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 281A77BB143F103C004069FD /* InfoPlist.strings */; };
+		281A77C0143F103C004069FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 281A77BF143F103C004069FD /* main.m */; };
+		281A77C3143F103D004069FD /* DrinkMixerAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 281A77C2143F103D004069FD /* DrinkMixerAppDelegate.m */; };
+		281A77C6143F103D004069FD /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 281A77C4143F103D004069FD /* MainWindow.xib */; };
+		281A77C9143F103D004069FD /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 281A77C8143F103D004069FD /* RootViewController.m */; };
+		281A77CC143F103D004069FD /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 281A77CA143F103D004069FD /* RootViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		281A77AE143F103C004069FD /* DrinkMixer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrinkMixer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		281A77B2143F103C004069FD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		281A77B4143F103C004069FD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		281A77B6143F103C004069FD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		281A77BA143F103C004069FD /* DrinkMixer-Info.plist */ = {isa = PBXFileReference; path = "DrinkMixer-Info.plist"; sourceTree = "<group>"; };
+		281A77BC143F103C004069FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		281A77BE143F103C004069FD /* DrinkMixer-Prefix.pch */ = {isa = PBXFileReference; path = "DrinkMixer-Prefix.pch"; sourceTree = "<group>"; };
+		281A77BF143F103C004069FD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		281A77C1143F103D004069FD /* DrinkMixerAppDelegate.h */ = {isa = PBXFileReference; path = DrinkMixerAppDelegate.h; sourceTree = "<group>"; };
+		281A77C2143F103D004069FD /* DrinkMixerAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrinkMixerAppDelegate.m; sourceTree = "<group>"; };
+		281A77C5143F103D004069FD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		281A77C7143F103D004069FD /* RootViewController.h */ = {isa = PBXFileReference; path = RootViewController.h; sourceTree = "<group>"; };
+		281A77C8143F103D004069FD /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		281A77CB143F103D004069FD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RootViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		281A77AB143F103C004069FD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				281A77B3143F103C004069FD /* UIKit.framework in Frameworks */,
+				281A77B5143F103C004069FD /* Foundation.framework in Frameworks */,
+				281A77B7143F103C004069FD /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		281A77A3143F103C004069FD = {
+			isa = PBXGroup;
+			children = (
+				281A77B8143F103C004069FD /* DrinkMixer */,
+				281A77B1143F103C004069FD /* Frameworks */,
+				281A77AF143F103C004069FD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		281A77AF143F103C004069FD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				281A77AE143F103C004069FD /* DrinkMixer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		281A77B1143F103C004069FD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				281A77B2143F103C004069FD /* UIKit.framework */,
+				281A77B4143F103C004069FD /* Foundation.framework */,
+				281A77B6143F103C004069FD /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		281A77B8143F103C004069FD /* DrinkMixer */ = {
+			isa = PBXGroup;
+			children = (
+				281A77C1143F103D004069FD /* DrinkMixerAppDelegate.h */,
+				281A77C2143F103D004069FD /* DrinkMixerAppDelegate.m */,
+				281A77C4143F103D004069FD /* MainWindow.xib */,
+				281A77C7143F103D004069FD /* RootViewController.h */,
+				281A77C8143F103D004069FD /* RootViewController.m */,
+				281A77CA143F103D004069FD /* RootViewController.xib */,
+				281A77B9143F103C004069FD /* Supporting Files */,
+			);
+			path = DrinkMixer;
+			sourceTree = "<group>";
+		};
+		281A77B9143F103C004069FD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				281A77BA143F103C004069FD /* DrinkMixer-Info.plist */,
+				281A77BB143F103C004069FD /* InfoPlist.strings */,
+				281A77BE143F103C004069FD /* DrinkMixer-Prefix.pch */,
+				281A77BF143F103C004069FD /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		281A77AD143F103C004069FD /* DrinkMixer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 281A77CF143F103D004069FD /* Build configuration list for PBXNativeTarget "DrinkMixer" */;
+			buildPhases = (
+				281A77AA143F103C004069FD /* Sources */,
+				281A77AB143F103C004069FD /* Frameworks */,
+				281A77AC143F103C004069FD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DrinkMixer;
+			productName = DrinkMixer;
+			productReference = 281A77AE143F103C004069FD /* DrinkMixer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		281A77A5143F103C004069FD /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 281A77A8143F103C004069FD /* Build configuration list for PBXProject "DrinkMixer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 281A77A3143F103C004069FD;
+			productRefGroup = 281A77AF143F103C004069FD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				281A77AD143F103C004069FD /* DrinkMixer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		281A77AC143F103C004069FD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				281A77BD143F103C004069FD /* InfoPlist.strings in Resources */,
+				281A77C6143F103D004069FD /* MainWindow.xib in Resources */,
+				281A77CC143F103D004069FD /* RootViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		281A77AA143F103C004069FD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				281A77C0143F103C004069FD /* main.m in Sources */,
+				281A77C3143F103D004069FD /* DrinkMixerAppDelegate.m in Sources */,
+				281A77C9143F103D004069FD /* RootViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		281A77BB143F103C004069FD /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				281A77BC143F103C004069FD /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		281A77C4143F103D004069FD /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				281A77C5143F103D004069FD /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		281A77CA143F103D004069FD /* RootViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				281A77CB143F103D004069FD /* en */,
+			);
+			name = RootViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		281A77CD143F103D004069FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		281A77CE143F103D004069FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		281A77D0143F103D004069FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DrinkMixer/DrinkMixer-Prefix.pch";
+				INFOPLIST_FILE = "DrinkMixer/DrinkMixer-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		281A77D1143F103D004069FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DrinkMixer/DrinkMixer-Prefix.pch";
+				INFOPLIST_FILE = "DrinkMixer/DrinkMixer-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		281A77A8143F103C004069FD /* Build configuration list for PBXProject "DrinkMixer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				281A77CD143F103D004069FD /* Debug */,
+				281A77CE143F103D004069FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		281A77CF143F103D004069FD /* Build configuration list for PBXNativeTarget "DrinkMixer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				281A77D0143F103D004069FD /* Debug */,
+				281A77D1143F103D004069FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 281A77A5143F103C004069FD /* Project object */;
+}
