@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	
+	<dict>
+        <key>Name</key>
+        <string>Sex on The Beach</string>
+		<key>Description</key>
+		<string>This is Sex on The Beach</string>
+		<key>Ingredients</key>
+		<string>Lots of sand and sex</string>
+	</dict>
+	
+	<dict>
+        <key>Name</key>
+        <string>The Dmack</string>
+		<key>Description</key>
+		<string>This is the Dmack</string>
+		<key>Ingredients</key>
+		<string>Vodka, Lime, More Vodka, Lemonade</string>
+	</dict>
+	
+	<dict>
+        <key>Name</key>
+        <string>The Michelle</string>
+		<key>Description</key>
+		<string>This is the Michelle</string>
+		<key>Ingredients</key>
+		<string>Gin and Pinapple</string>
+	</dict>
+	
+	<dict>
+        <key>Name</key>
+        <string>Another Cocktail</string>
+		<key>Description</key>
+		<string>Another Cocktail description</string>
+		<key>Ingredients</key>
+		<string>Two parts sugar, one part love</string>
+	</dict>
+</array>
+</plist>

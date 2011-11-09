@@ -10,9 +10,35 @@
 
 @implementation RootViewController
 
+@synthesize drinks=drinks_, addButton=addButton_;
+
+
+- (IBAction) addDrink:(id)sender
+{
+    NSLog(@"Add Button clicked");
+    AddDrinkViewController* addDrinkViewController = [[AddDrinkViewController alloc] initWithNibName:@"DetailedDrinkViewController" bundle:nil];
+    UINavigationController* addDrinkNavController = [[UINavigationController alloc] initWithRootViewController:addDrinkViewController];
+    
+    [self presentModalViewController:addDrinkNavController animated:YES];
+    [addDrinkViewController release];
+    [addDrinkNavController release];
+    
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"View Did Load");
+    
+    self.navigationItem.rightBarButtonItem = addButton_;
+    
+    //drinks_ = [[NSArray alloc] initWithObjects: @"The Michelle", @"The Dmack", @"Sex on the Beach", nil];
+    
+    NSString* filePath = [[NSBundle mainBundle] pathForResource:@"DrinksList" ofType:@"plist"];
+    
+    drinks_ = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
+    
+    //NSLog(@"Size: %@", [drinks_ count]);
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -51,7 +77,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return [drinks_ count];
 }
 
 // Customize the appearance of table view cells.
@@ -65,6 +91,12 @@
     }
 
     // Configure the cell.
+    NSDictionary* drink = [drinks_ objectAtIndex:indexPath.row];
+    
+    
+    cell.textLabel.text = [drink valueForKey:NAME_KEY];
+    cell.editingAccessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
     return cell;
 }
 
@@ -111,13 +143,18 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    /*
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-    // ...
+    NSLog(@"Selected Index: %@", indexPath);
+    
+    
+    DetailedDrinkViewController *detailViewController = [[DetailedDrinkViewController alloc] initWithNibName:@"DetailedDrinkViewController" bundle:nil];
+   
+    detailViewController.drink = [drinks_ objectAtIndex:indexPath.row];
+    
+    
     // Pass the selected object to the new view controller.
     [self.navigationController pushViewController:detailViewController animated:YES];
     [detailViewController release];
-	*/
+	
 }
 
 - (void)didReceiveMemoryWarning
@@ -138,6 +175,8 @@
 
 - (void)dealloc
 {
+    [drinks_ release];
+    [addButton_ release];
     [super dealloc];
 }
 
