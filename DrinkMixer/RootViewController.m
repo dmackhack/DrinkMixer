@@ -10,13 +10,15 @@
 
 @implementation RootViewController
 
-@synthesize drinks=drinks_, addButton=addButton_;
+@synthesize drinks=drinks_, addButton=addButton_, splitViewDetailView=splitViewDetailView_;
 
 
 - (IBAction) addDrink:(id)sender
 {
     NSLog(@"Add Button clicked");
     AddDrinkViewController* addDrinkViewController = [[AddDrinkViewController alloc] initWithNibName:@"DetailedDrinkViewController" bundle:nil];
+    addDrinkViewController.drinks = drinks_;
+    
     UINavigationController* addDrinkNavController = [[UINavigationController alloc] initWithRootViewController:addDrinkViewController];
     
     [self presentModalViewController:addDrinkNavController animated:YES];
@@ -31,12 +33,14 @@
     NSLog(@"View Did Load");
     
     self.navigationItem.rightBarButtonItem = addButton_;
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
     //drinks_ = [[NSArray alloc] initWithObjects: @"The Michelle", @"The Dmack", @"Sex on the Beach", nil];
     
     NSString* filePath = [[NSBundle mainBundle] pathForResource:@"DrinksList" ofType:@"plist"];
-    
     drinks_ = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidEnterBackground:) name:UIApplicationDidEnterBackgroundNotification object:nil];
     
     //NSLog(@"Size: %@", [drinks_ count]);
 }
@@ -44,6 +48,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self.tableView reloadData];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -59,15 +64,23 @@
 - (void)viewDidDisappear:(BOOL)animated
 {
 	[super viewDidDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-/*
+
+- (void)applicationDidEnterBackground
+{
+    NSString* filePath = [[NSBundle mainBundle] pathForResource:@"DrinksList" ofType:@"plist"];
+    [self.drinks writeToFile:filePath atomically:YES];
+}
+
+
  // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
 	// Return YES for supported orientations.
-	return (interfaceOrientation == UIInterfaceOrientationPortrait);
+	return YES;
 }
- */
+
 
 // Customize the number of sections in the table view.
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -95,7 +108,7 @@
     
     
     cell.textLabel.text = [drink valueForKey:NAME_KEY];
-    cell.editingAccessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
 }
@@ -109,13 +122,14 @@
 }
 */
 
-/*
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
         // Delete the row from the data source.
+        [drinks_ removeObjectAtIndex: indexPath.row];
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert)
@@ -123,7 +137,7 @@
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
     }   
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.
@@ -145,16 +159,38 @@
 {
     NSLog(@"Selected Index: %@", indexPath);
     
+    if (!self.editing)
+    {
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+        {
+            [self.splitViewDetailView drinkChanged: [self.drinks objectAtIndex:indexPath.row]];
+        }
+        else
+        {
+            DetailedDrinkViewController *detailViewController = [[DetailedDrinkViewController alloc] initWithNibName:@"DetailedDrinkViewController" bundle:nil];
+        
+            detailViewController.drink = [drinks_ objectAtIndex:indexPath.row];
+        
+        
+            // Pass the selected object to the new view controller.
+            [self.navigationController pushViewController:detailViewController animated:YES];
+            [detailViewController release];
+        }
+    }
+    else
+    {        
+        NSLog(@"trying to edit drink");
+        AddDrinkViewController* addDrinkViewController = [[AddDrinkViewController alloc] initWithNibName:@"DetailedDrinkViewController" bundle:nil];
+        addDrinkViewController.drink = [drinks_ objectAtIndex:indexPath.row];
+        addDrinkViewController.drinks = drinks_;
+        
+        UINavigationController* addDrinkNavController = [[UINavigationController alloc] initWithRootViewController:addDrinkViewController];
+        
+        [self presentModalViewController:addDrinkNavController animated:YES];
+        [addDrinkViewController release];
+        [addDrinkNavController release];
+    }
     
-    DetailedDrinkViewController *detailViewController = [[DetailedDrinkViewController alloc] initWithNibName:@"DetailedDrinkViewController" bundle:nil];
-   
-    detailViewController.drink = [drinks_ objectAtIndex:indexPath.row];
-    
-    
-    // Pass the selected object to the new view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
-    [detailViewController release];
-	
 }
 
 - (void)didReceiveMemoryWarning
@@ -177,6 +213,7 @@
 {
     [drinks_ release];
     [addButton_ release];
+    [splitViewDetailView_ release];
     [super dealloc];
 }
 

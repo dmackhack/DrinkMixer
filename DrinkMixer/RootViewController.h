@@ -11,15 +11,18 @@
 #import "AddDrinkViewController.h"
 #import "Constants.h"
 
+@class DetailedDrinkViewController;
 @interface RootViewController : UITableViewController {
 
-    NSArray* drinks_;
+    NSMutableArray* drinks_;
     UIBarButtonItem* addButton_;
+    DetailedDrinkViewController* splitViewDetailView_;
     
 }
 
 @property (nonatomic, retain) NSArray* drinks;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem* addButton;
+@property (nonatomic, retain) IBOutlet DetailedDrinkViewController* splitViewDetailView;
 
 - (IBAction) addDrink: (id) sender;
 

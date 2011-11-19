@@ -20,6 +20,7 @@
 		281A781B143F2D59004069FD /* DetailedDrinkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 281A7819143F2D59004069FD /* DetailedDrinkViewController.xib */; };
 		281A781D143F3426004069FD /* DrinksList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 281A781C143F3426004069FD /* DrinksList.plist */; };
 		2881CDD1143FE1AF009030DD /* AddDrinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2881CDD0143FE1AF009030DD /* AddDrinkViewController.m */; };
+		635ADED8146FA3D90053695A /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 635ADED6146FA3D90053695A /* MainWindow-iPad.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		281A781F143F3A6F004069FD /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		2881CDCF143FE1AF009030DD /* AddDrinkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDrinkViewController.h; sourceTree = "<group>"; };
 		2881CDD0143FE1AF009030DD /* AddDrinkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDrinkViewController.m; sourceTree = "<group>"; };
+		635ADED7146FA3D90053695A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "iPad/en.lproj/MainWindow-iPad.xib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 		281A77B8143F103C004069FD /* DrinkMixer */ = {
 			isa = PBXGroup;
 			children = (
+				635ADED5146FA3D70053695A /* iPad */,
 				281A77C1143F103D004069FD /* DrinkMixerAppDelegate.h */,
 				281A77C2143F103D004069FD /* DrinkMixerAppDelegate.m */,
 				281A77C4143F103D004069FD /* MainWindow.xib */,
@@ -119,6 +122,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		635ADED5146FA3D70053695A /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				635ADED6146FA3D90053695A /* MainWindow-iPad.xib */,
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,6 +155,9 @@
 /* Begin PBXProject section */
 		281A77A5143F103C004069FD /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = 281A77A8143F103C004069FD /* Build configuration list for PBXProject "DrinkMixer" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
@@ -171,6 +185,7 @@
 				281A77CC143F103D004069FD /* RootViewController.xib in Resources */,
 				281A781B143F2D59004069FD /* DetailedDrinkViewController.xib in Resources */,
 				281A781D143F3426004069FD /* DrinksList.plist in Resources */,
+				635ADED8146FA3D90053695A /* MainWindow-iPad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,6 +231,14 @@
 			name = RootViewController.xib;
 			sourceTree = "<group>";
 		};
+		635ADED6146FA3D90053695A /* MainWindow-iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				635ADED7146FA3D90053695A /* en */,
+			);
+			name = "MainWindow-iPad.xib";
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -259,8 +282,11 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DrinkMixer/DrinkMixer-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "DrinkMixer/DrinkMixer-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -272,8 +298,11 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DrinkMixer/DrinkMixer-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "DrinkMixer/DrinkMixer-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};

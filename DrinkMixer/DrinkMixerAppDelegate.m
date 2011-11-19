@@ -10,16 +10,20 @@
 
 @implementation DrinkMixerAppDelegate
 
-
-@synthesize window=_window;
-
-@synthesize navigationController=_navigationController;
+@synthesize window=_window, navigationController=_navigationController, splitViewController=splitViewController_;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
     // Add the navigation controller's view to the window and display.
-    self.window.rootViewController = self.navigationController;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+    {
+        [self.window addSubview: self.splitViewController.view];
+    }
+    else
+    {
+        [self.window addSubview: self.navigationController.view];
+    }
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -67,6 +71,7 @@
 {
     [_window release];
     [_navigationController release];
+    [splitViewController_ release];
     [super dealloc];
 }
 

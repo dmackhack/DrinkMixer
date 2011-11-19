@@ -11,7 +11,44 @@
 
 @implementation DetailedDrinkViewController
 
-@synthesize drink=drink_, nameField=nameField_, descriptionView=descriptionView_, ingredientsView=ingredientsView_, drinkContentsScrollView=drinkContentsScrollView_;
+@synthesize drink=drink_, nameField=nameField_, descriptionView=descriptionView_, ingredientsView=ingredientsView_, drinkContentsScrollView=drinkContentsScrollView_, drinks=drinks_, popOver=popOver_;
+
+- (void) refreshView
+{
+    NSLog(@"Refreshing view with DrinkName: %@", [drink_ objectForKey:NAME_KEY]);
+    
+    self.nameField.text = [self.drink objectForKey:NAME_KEY];
+    self.descriptionView.text = [self.drink objectForKey:DESCRIPTION_KEY];
+    self.ingredientsView.text = [self.drink objectForKey:INGREDIENTS_KEY];
+}
+
+- (void) drinkChanged:(NSDictionary *)newDrink
+{
+    self.drink = newDrink;
+    [self refreshView];
+    if (popOver_ != nil)
+    {
+        [popOver_ dismissPopoverAnimated:YES];
+    }
+}
+
+#pragma mark - UISplitViewDelegate methods
+
+// Called when a button should be added to a toolbar for a hidden view controller
+- (void)splitViewController: (UISplitViewController*)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem*)barButtonItem forPopoverController: (UIPopoverController*)pc
+{
+    barButtonItem.title = @"Drinks";
+    
+    [self.navigationItem setLeftBarButtonItem:barButtonItem animated:YES];
+    self.popOver = pc;
+}
+
+// Called when the view is shown again in the split view, invalidating the button and popover controller
+- (void)splitViewController: (UISplitViewController*)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
+{
+    [self.navigationItem setLeftBarButtonItem:nil animated:YES];
+    self.popOver = nil;
+}
 
 
 - (void) keyboardShown: (NSNotification*) notif
@@ -59,19 +96,18 @@
     keyboardVisible_ = NO;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self refreshView];
+}
+
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardShown:) name:UIKeyboardDidShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardHidden:) name:UIKeyboardDidHideNotification object:nil];
-    
-    NSLog(@"DrinkName: %@", [drink_ objectForKey:NAME_KEY]);
-    
-    self.nameField.text = [drink_ objectForKey:NAME_KEY];
-    self.descriptionView.text = [drink_ objectForKey:DESCRIPTION_KEY];
-    self.ingredientsView.text = [drink_ objectForKey:INGREDIENTS_KEY];
-
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -91,10 +127,13 @@
 
 - (void)dealloc
 {
+    [drinks_ release];
+    [drink_ release];
     [nameField_ release];
     [descriptionView_ release];
     [ingredientsView_ release];
     [drinkContentsScrollView_ release];
+    [popOver_ release];
     [super dealloc];
 }
 
@@ -128,7 +167,7 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return YES;
 }
 
 @end

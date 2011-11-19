@@ -21,7 +21,23 @@
 {
     NSLog(@"Done.");
     
+    if (self.drink != nil)
+    {
+        [drinks_ removeObject:self.drink];
+        self.drink = nil;
+    }
     
+    NSMutableDictionary *newDrink = [[NSMutableDictionary alloc] init];
+    [newDrink setValue: nameField_.text forKey: NAME_KEY];
+    [newDrink setValue: descriptionView_.text forKey: DESCRIPTION_KEY];
+    [newDrink setValue: ingredientsView_.text forKey: INGREDIENTS_KEY];
+    
+    [drinks_ addObject:newDrink];
+    [newDrink release];
+    
+    NSSortDescriptor *nameSorter = [[NSSortDescriptor alloc] initWithKey:NAME_KEY ascending:YES selector:@selector(caseInsensitiveCompare:)];
+    [drinks_ sortUsingDescriptors:[NSArray arrayWithObject:nameSorter]];
+    [nameSorter release];
     
     [self dismissModalViewControllerAnimated:YES];
 }
